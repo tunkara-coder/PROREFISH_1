@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry - PROREFISH Gambia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark dashboard-header">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">
+                <span class="logo-text">🌊</span>
+                PROREFISH Gambia
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+                <a class="nav-link" href="reports.html">Reports</a>
+                <a class="nav-link" href="api-connections.html">API Connections</a>
+                <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Data Entry Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Data Entry</h2>
+                <p class="text-muted">Enter project data for reporting and monitoring</p>
+
+                <!-- Component Navigation -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Select Component for Data Entry</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3">
+                                <a href="#component1" class="btn btn-outline-primary btn-lg w-100" onclick="showComponent('component1')">
+                                    🌿 Component 1<br>
+                                    <small>Mangrove Ecosystems</small>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="#component2" class="btn btn-outline-info btn-lg w-100" onclick="showComponent('component2')">
+                                    🏗️ Component 2<br>
+                                    <small>Infrastructure & Aquaculture</small>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="#component3" class="btn btn-outline-success btn-lg w-100" onclick="showComponent('component3')">
+                                    👥 Component 3<br>
+                                    <small>Capacity Development</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component 1 Data Entry -->
+                <div id="component1" class="component-form">
+                    <div class="card mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h5>🌿 Component 1: Mangrove Ecosystems Data</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="mangroveForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Reforestation Activities</h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">Hectares Reforested</label>
+                                            <input type="number" class="form-control" id="hectaresReforested" step="0.1">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Number of Seedlings Planted</label>
+                                            <input type="number" class="form-control" id="seedlingsPlanted">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Survival Rate (%)</label>
+                                            <input type="number" class="form-control" id="survivalRate" min="0" max="100">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Community Engagement</h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">Communities Involved</label>
+                                            <input type="number" class="form-control" id="communitiesInvolved">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Training Participants (Female)</label>
+                                            <input type="number" class="form-control" id="trainingFemale">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Training Participants (Male)</label>
+                                            <input type="number" class="form-control" id="trainingMale">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Challenges Encountered</label>
+                                    <textarea class="form-control" id="mangroveChallenges" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Save Mangrove Data</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component 2 Data Entry -->
+                <div id="component2" class="component-form" style="display: none;">
+                    <div class="card mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h5>🏗️ Component 2: Infrastructure & Aquaculture Data</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="infrastructureForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Infrastructure Development</h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">Fish Feed Mill Production (tonnes/month)</label>
+                                            <input type="number" class="form-control" id="feedMillProduction" step="0.1">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Landing Sites Construction Progress (%)</label>
+                                            <input type="number" class="form-control" id="landingSitesProgress" min="0" max="100">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Cold Storage Capacity (tonnes)</label>
+                                            <input type="number" class="form-control" id="coldStorageCapacity">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Aquaculture Training</h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">Oyster Farmers Trained (Female)</label>
+                                            <input type="number" class="form-control" id="oysterFarmersFemale">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Oyster Farmers Trained (Male)</label>
+                                            <input type="number" class="form-control" id="oysterFarmersMale">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Clam Culture Participants</label>
+                                            <input type="number" class="form-control" id="clamCultureParticipants">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Infrastructure Notes</label>
+                                    <textarea class="form-control" id="infrastructureNotes" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-info">Save Infrastructure Data</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component 3 Data Entry -->
+                <div id="component3" class="component-form" style="display: none;">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5>👥 Component 3: Capacity Development Data</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="capacityForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Training Activities</h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">TAC Meetings Held</label>
+                                            <input type="number" class="form-control" id="tacMeetings">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Gender Training Participants</label>
+                                            <input type="number" class="form-control" id="genderTraining">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">SEAH Training Completed</label>
+                                            <select class="form-select" id="seahTraining">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                <option value="in-progress">In Progress</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>E-extension System</h6>
+                                        <div class="mb-3">
+                                            <label class="form-label">Extension Officers Trained</label>
+                                            <input type="number" class="form-control" id="extensionOfficers">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Mobile Devices Distributed</label>
+                                            <input type="number" class="form-control" id="mobileDevices">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Farmers Registered in System</label>
+                                            <input type="number" class="form-control" id="farmersRegistered">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Capacity Building Challenges</label>
+                                    <textarea class="form-control" id="capacityChallenges" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Capacity Data</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Project Data -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>General Project Data</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="generalForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Reporting Period</label>
+                                        <input type="month" class="form-control" id="reportingPeriod" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Project Phase</label>
+                                        <select class="form-select" id="projectPhase" required>
+                                            <option value="year1">Year 1</option>
+                                            <option value="year2" selected>Year 2</option>
+                                            <option value="year3">Year 3</option>
+                                            <option value="year4">Year 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Data Entry Officer</label>
+                                        <input type="text" class="form-control" id="dataOfficer" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Save General Data</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data-entry.js"></script>
+    <script>
+        function showComponent(componentId) {
+            // Hide all component forms
+            document.querySelectorAll('.component-form').forEach(form => {
+                form.style.display = 'none';
+            });
+            
+            // Show selected component form
+            document.getElementById(componentId).style.display = 'block';
+            
+            // Update active button states
+            document.querySelectorAll('.btn-outline-primary, .btn-outline-info, .btn-outline-success').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Show Component 1 by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showComponent('component1');
+        });
+    </script>
+</body>
+</html>

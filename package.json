@@ -1,0 +1,14 @@
+{
+  "name": "prorofish-portal",
+  "version": "1.0.0",
+  "description": "PROREFISH Gambia Project Management Portal",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server",
+    "start": "live-server"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {}
+}

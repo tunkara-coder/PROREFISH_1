@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connections - PROREFISH Gambia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark dashboard-header">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDIyQzE3LjUyMjggMjIgMjIgMTcuNTIyOCAyMiAxMkMyMiA2LjQ3NzE1IDE3LjUyMjggMiAxMiAyQzYuNDc3MTUgMiAyIDYuNDc3MTUgMiAxMkMyIDE3LjUyMjggNi40NzcxNSAyMiAxMiAyMloiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Logo" class="me-2">
+                PROREFISH Gambia
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+                <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- API Connections Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>API Connections</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addApiModal">
+                        Add New Connection
+                    </button>
+                </div>
+
+                <!-- API Connection Cards -->
+                <div class="row">
+                    <!-- GCF Integration -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card api-connection-card h-100" onclick="toggleConnection('gcf')">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h5 class="card-title">
+                                            <span class="connection-status status-connected"></span>
+                                            Green Climate Fund
+                                        </h5>
+                                        <p class="card-text">APR Data Integration & Reporting</p>
+                                    </div>
+                                    <span class="badge bg-success">Connected</span>
+                                </div>
+                                <div class="mt-3">
+                                    <small class="text-muted">Last Sync: 2024-01-23 10:30</small><br>
+                                    <small class="text-muted">Endpoint: /api/v1/gcf/apr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAO Financial System -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card api-connection-card h-100" onclick="toggleConnection('fao')">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h5 class="card-title">
+                                            <span class="connection-status status-connected"></span>
+                                            FAO Financial System
+                                        </h5>
+                                        <p class="card-text">Budget & Disbursement Tracking</p>
+                                    </div>
+                                    <span class="badge bg-success">Connected</span>
+                                </div>
+                                <div class="mt-3">
+                                    <small class="text-muted">Last Sync: 2024-01-20 14:22</small><br>
+                                    <small class="text-muted">Endpoint: /api/v1/fao/finance</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gambia Government Data -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card api-connection-card h-100" onclick="toggleConnection('gov')">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h5 class="card-title">
+                                            <span class="connection-status status-pending"></span>
+                                            Government of Gambia
+                                        </h5>
+                                        <p class="card-text">Water Quality & Forest Cover Data</p>
+                                    </div>
+                                    <span class="badge bg-warning">Pending</span>
+                                </div>
+                                <div class="mt-3">
+                                    <small class="text-muted">Last Sync: Not configured</small><br>
+                                    <small class="text-muted">Endpoint: /api/v1/gov/environment</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Payment System -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card api-connection-card h-100" onclick="toggleConnection('mobile')">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h5 class="card-title">
+                                            <span class="connection-status status-disconnected"></span>
+                                            Mobile Payment System
+                                        </h5>
+                                        <p class="card-text">Beneficiary Payments & Verification</p>
+                                    </div>
+                                    <span class="badge bg-danger">Disconnected</span>
+                                </div>
+                                <div class="mt-3">
+                                    <small class="text-muted">Last Sync: 2023-12-15 09:45</small><br>
+                                    <small class="text-muted">Endpoint: /api/v1/payments/mobile</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Documentation -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5>API Integration Guide</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Supported Data Formats:</h6>
+                        <ul>
+                            <li><strong>JSON</strong> - Preferred format for all API communications</li>
+                            <li><strong>CSV</strong> - For bulk data imports/exports</li>
+                            <li><strong>XML</strong> - Legacy system support</li>
+                        </ul>
+                        
+                        <h6 class="mt-3">Required Fields for APR Integration:</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Field</th>
+                                        <th>Description</th>
+                                        <th>Data Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>beneficiaries_direct_female</td>
+                                        <td>Direct female beneficiaries</td>
+                                        <td>Integer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>beneficiaries_direct_male</td>
+                                        <td>Direct male beneficiaries</td>
+                                        <td>Integer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mangrove_hectares_restored</td>
+                                        <td>Hectares under restoration</td>
+                                        <td>Decimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>infrastructure_value</td>
+                                        <td>Value of climate-proofed assets</td>
+                                        <td>Decimal (USD)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ghg_emissions_reduced</td>
+                                        <td>GHG reductions in tCO2eq</td>
+                                        <td>Decimal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add API Modal -->
+    <div class="modal fade" id="addApiModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New API Connection</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="apiConnectionForm">
+                        <div class="mb-3">
+                            <label for="apiName" class="form-label">Connection Name</label>
+                            <input type="text" class="form-control" id="apiName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apiEndpoint" class="form-label">API Endpoint</label>
+                            <input type="url" class="form-control" id="apiEndpoint" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apiKey" class="form-label">API Key</label>
+                            <input type="password" class="form-control" id="apiKey" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataFormat" class="form-label">Data Format</label>
+                            <select class="form-select" id="dataFormat" required>
+                                <option value="">Select format</option>
+                                <option value="json">JSON</option>
+                                <option value="csv">CSV</option>
+                                <option value="xml">XML</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addApiConnection()">Connect</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="api-connections.js"></script>
+</body>
+</html>
